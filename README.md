@@ -191,18 +191,3 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 | `chess-layout.onnx` / `chess-corners.onnx` | 棋盘定位与棋子分类，由桌面端识别项目导出的 RTMPose 结构模型 | 随本仓库分发 |
 
 本项目因随包分发 Pikafish（GPL-3.0）二进制与权重，整体以 **GPL-3.0** 发布，完整许可文本见 [LICENSE](LICENSE)。若分发自行修改的版本，请同样保留许可与源码可得性。
-
-## 推送到 GitHub 前
-
-仓库里三个二进制（`pikafish.nnue` 48 MB、`chess-layout.onnx` 30 MB、`libpikafish.so` 1.7 MB）合计约 80 MB。GitHub 单文件上限 100 MB，但 50 MB 以上会告警，建议走 Git LFS：
-
-```bash
-git lfs install
-git lfs track "*.nnue" "*.onnx" "*.so"
-git add .gitattributes
-git init -b main && git add -A && git commit -m "feat: 象棋助手 v1.4 首次提交"
-git remote add origin git@github.com:<你的账号>/XiangqiBridge.git
-git push -u origin main
-```
-
-`.gitignore` 已排除 `build/`、`.gradle/`、`.kotlin/`、`dist/` 与所有 APK，仓库净体约 91 MB（全为模型与引擎），源码本身仅约 60 KB。
