@@ -1,0 +1,21 @@
+# Gradle
+.gradle/
+build/
+app/build/
+.kotlin/
+local.properties
+
+# 构建产物
+dist/
+*.apk
+*.aab
+*.idsig
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# 系统
+.DS_Store
+Thumbs.db
